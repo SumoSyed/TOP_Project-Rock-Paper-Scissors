@@ -34,46 +34,76 @@
     
         // ROCK
         if(playerSelection === "rock" && computerSelection === "rock"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "DRAW"
         } else if (playerSelection === "rock" && computerSelection === "paper"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "COMPUTER WINS"
         } else if (playerSelection === "rock" && computerSelection === "scissor"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "PLAYER WINS"
         }
 
         // Paper
         if(playerSelection === "paper" && computerSelection === "rock"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "PLAYER WINS"
         } else if (playerSelection === "paper" && computerSelection === "paper"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "DRAW"
         } else if (playerSelection === "paper" && computerSelection === "scissor"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "COMPUTER WINS"
         }
 
         // Scissor
         if(playerSelection === "scissor" && computerSelection === "rock"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "COMPUTER WINS"
         } else if (playerSelection === "scissor" && computerSelection === "paper"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "PLAYER WINS"
         } else if (playerSelection === "scissor" && computerSelection === "scissor"){
+            console.log(`The Player picked: ${playerSelection}`);
             console.log(`The Computer picked: ${computerSelection}`);
             return "DRAW"
         }
     }
 
     let computerSelection = computerPlay;
+    let user_score = 0;
+    let comp_score = 0;
 
     function game(){
-        let playerSelection = prompt("Pick Rock Paper or Scissor");
-        console.log(round(playerSelection, computerSelection()))  
+        
+        let playerSelection = prompt("Pick Rock Paper or Scissor").toLowerCase();
+        
+        if(playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissor"){
+            return "You must type rock, paper or scissor";
+        } else{
+            playRound = round(playerSelection, computerSelection())
+            if (playRound === "COMPUTER WINS"){
+                console.log(playRound);
+                comp_score += 5;
+            } else if (playRound === "PLAYER WINS"){
+                console.log(playRound);
+                user_score += 5;
+            } else if (playRound === "DRAW"){
+                console.log(playRound);
+                console.log("Score says the same!");
+            }
+            console.log(`User Score = ${user_score}`)
+            console.log(`Computer Score = ${comp_score}`)
+
+        }
     }
 
     for (let count = 0; count < 5; ++count){
