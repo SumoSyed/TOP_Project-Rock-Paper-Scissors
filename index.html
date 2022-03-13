@@ -18,7 +18,7 @@
     // Computer's selection
     function computerPlay(){
                 
-        computerPlay = Math.random().toFixed(1)
+        let computerPlay = Math.random().toFixed(1)
 
         if (computerPlay < 0.4){
             return "rock"
@@ -78,7 +78,6 @@
         }
     }
 
-    let computerSelection = computerPlay;
     let user_score = 0;
     let comp_score = 0;
 
@@ -89,7 +88,7 @@
         if(playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissor"){
             return "You must type rock, paper or scissor";
         } else{
-            playRound = round(playerSelection, computerSelection())
+            playRound = round(playerSelection, computerPlay())
             if (playRound === "COMPUTER WINS"){
                 console.log(playRound);
                 comp_score += 5;
